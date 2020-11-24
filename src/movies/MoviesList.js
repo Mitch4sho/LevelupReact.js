@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Movie } from "./Movie";
 import { Filter } from "../Filter";
 
@@ -17,8 +17,18 @@ const movies = [
 export function MoviesList() {
   const [filter, setFilter] = useState("");
 
+  // a way to access the Dom and use certain methods in regular React
+  const ulRef = useRef(null);
+  const ref = useRef(null)
+
   return (
-    <div>
+    <div ref={ulRef}>
+    <form onSumbit ={(e) => {
+      e.preventDefault()
+    }}>
+      <input ref = {ref} />
+      <button />
+    </form>
       <Filter filter={filter} setFilter={setFilter} />
       <ul>
         {movies
