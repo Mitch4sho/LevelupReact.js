@@ -6,13 +6,13 @@ export function Movie({ movie }) {
   //    console.log(movie.name);
   //  }, []);
 
-  return <li>{movie.name}</li>;
+  return <li>{movie.title}</li>;
 }
 
 //Proptypes this makes debugging a lot easier!
 
 Movie.propTypes = {
   movie: PropTypes.shape({
-    name: PropTypes.string.isRequired
-  }).isRequired
-}
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+};

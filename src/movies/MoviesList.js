@@ -14,12 +14,27 @@ const movies = [
   },
 ];
 
+const API_URL =
+  "https://api.themoviedb.org/3/discover/movie?api_key=acb01648392c4e67394377c61583afcd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
+
 export function MoviesList() {
   const [filter, setFilter] = useState("");
-  
+  const [movies, setMovies] = useState([]);
+
+  //getting the movie data from the API
+  const getMovies = async () => {
+    try {
+      const res = await fetch(API_URL);
+      const movies = await res.json();
+      setMovies(movies.results);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   useEffect(() => {
-    console.log("use effect");
-  }, [filter]); 
+    getMovies();
+  }, []);
 
   return (
     <div>
@@ -27,10 +42,10 @@ export function MoviesList() {
       <ul>
         {movies
           .filter((movie) =>
-            movie.name.toLowerCase().includes(filter.toLowerCase())
+            movie.title.toLowerCase().includes(filter.toLowerCase())
           )
           .map((movie) => (
-            <Movie key={movie.name} movie={movie} />
+            <Movie key={movie.id} movie={movie} />
           ))}
       </ul>
     </div>
