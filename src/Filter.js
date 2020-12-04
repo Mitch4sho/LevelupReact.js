@@ -4,8 +4,11 @@ import PropTypes from "prop-types"
 export function Filter({ setFilter, filter }) {
   return (
     <label>
-      Filter:
-      <input onChange={(e) => setFilter(e.target.value)} value={filter} />
+      <input
+        placeholder="Search"
+        onChange={(e) => setFilter(e.target.value)}
+        value={filter}
+      />
     </label>
   );
 }

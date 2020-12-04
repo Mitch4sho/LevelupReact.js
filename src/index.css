@@ -21,3 +21,26 @@ code {
 input {
  background-color: transparent;
 }
+.backdrop{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; 
+}
+
+.detailDetails{
+  background: white;
+  position: relative;
+  z-index: 10;
+  color: #333;
+  margin-top: 400px;
+  display: flex;
+  text-align: left;
+  gap: 20px; 
+  padding: 20px;
+}
+.detailPoster{
+  position: relative;
+  margin-top: -160px;
+  box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.4)
+}
